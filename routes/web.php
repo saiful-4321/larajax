@@ -22,3 +22,10 @@ Route::resource('ajax','ajaxController');
 Route::post('ajaxMes','ajaxController@getSubCategories');
 Route::post('categoryDelete','ajaxController@delete');
 Route::post('Edit_ajax','ajaxController@updateAjax');
+
+
+// ajax response 
+
+Route::get('ajaxCategory',['as'=>'ajax.category','uses'=>'ajaxController@AjaxPage']);
+
+Route::get('findcat/{id}','ajaxController@findsub');

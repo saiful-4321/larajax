@@ -37,7 +37,7 @@
                 <level>Select Sub Category</level>
                 <select class="form-control" name="sub_cat" id="subcat">
 
-                    {{--<option value="">Select sub cat</option>--}}
+         
                 </select>
 
             </div>
@@ -49,27 +49,13 @@
     </div>
     <script>
         function getMessage(){
-            var category=$('#category').val();
-
-//               alert(category);
+            var category_id=$('#category').val();
             $.ajax({
-                method:'post',
-                url:'ajaxMes',
-                data:{category:category,'_token':$('input[name=_token]').val()},
+                method:'get',
+                url: "{{ url('findcat') }}"+'/'+category_id,
                 success:function (data) {
-
-                    // $('#successMessage').html('showing sub category');
-                    // setTimeout(function() {
-                    //     $('#successMessage').fadeOut('slow');
-                    // }, 3000);
-                    $('#subcat').html('<option value="">Select a option</option>');
-
-                    $.each(data['subCategoryData'],function (key,value) {
-
-                        $('#subcat').append('<option value="'+value['id']+'">'+value['sub_cat_name']+'</option>');
-                    });
-
-
+                    
+                    $('#subcat').html(data);
                 }
 
             });

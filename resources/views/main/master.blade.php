@@ -16,7 +16,8 @@
         <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="{{ url('/')  }}">Home</a></li>
             <li role="presentation"><a href="{{ route('sub_category.index')  }}">sub cat</a></li>
-            <li role="presentation"><a href="{{ route('ajax.index') }}">ajax</a></li>
+            <li role="presentation"><a href="{{ route('ajax.index') }}">ajax Response</a></li>
+            <li role="presentation"><a href="{{ url('ajaxCategory') }}">Ajax Pageload</a></li>
             <li role="presentation"><a href="{{ route('category.index')  }}">View category</a></li>
             <li role="presentation"><a href="#">about</a></li>
             <li role="presentation"><a href="#">portfolio</a></li>

@@ -7,6 +7,7 @@ use App\category;
 use App\subcategory;
 use DB;
 use Response;
+use View;
 class ajaxController extends Controller
 {
     /**
@@ -133,6 +134,26 @@ class ajaxController extends Controller
             return response()->json();
 
         }
+
+    }
+
+
+    public function AjaxPage(){
+         
+         $category = category::all();
+
+        return view('ajax_category',[
+
+            'category' => $category
+        ]);
+
+    }
+
+    public function findsub($id){
+
+       $sub_cat = subcategory::where('category_id','=',$id)->get();
+
+       return View::make('ajax_load',['sub_cat'=>$sub_cat]);
 
     }
 }
